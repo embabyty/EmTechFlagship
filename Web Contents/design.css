@@ -413,7 +413,7 @@ ul {
 .bento-grid .card:first-child {
   grid-column: 1 / -1;
   background-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 40%),
-                    url('../Images/EmBaby.jpeg');
+                    url('Images/EmBaby.jpeg');
   background-size: cover;
   background-position: center;
   border-radius: 28px;
