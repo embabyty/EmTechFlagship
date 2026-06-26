@@ -1,2 +1,5 @@
+name = "embaby"
+main = "Web Contents/Functions/function.js"
+
 [assets]
 directory = "Web Contents"
