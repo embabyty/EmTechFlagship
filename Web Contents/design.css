@@ -207,7 +207,6 @@ ul {
 .layout {
   min-height: 100vh;
   display: flex;
-  animation: fadeUp 0.6s ease forwards;
 }
 
 .sidebar {
@@ -274,12 +273,122 @@ ul {
   align-items: center;
 }
 
+/* ── Sidebar Search ── */
+.sidebar-search {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  
+}
+
+.sidebar-search__input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--md-sys-shape-full);
+  background: var(--md-sys-color-surface-container-high);
+  transition: border-color 0.2s;
+}
+
+.sidebar-search__input-wrap:focus-within {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.sidebar-search__input-wrap svg {
+  flex-shrink: 0;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.sidebar-search__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  box-sizing: border-box;
+  overflow: hidden;         /* Forces everything to stay inside the rounded pills */
+  font: var(--md-sys-typescale-label-large);
+  color: var(--md-sys-color-on-surface);
+  outline: none;
+}
+
+.sidebar-search__input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+  flex: 1;                  /* Tells the input to use up the remaining space properly */
+  min-width: 0;
+}
+
+
+.sidebar-search__results {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.sidebar-search__result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--md-sys-shape-full);
+  color: var(--md-sys-color-on-surface-variant);
+  font: var(--md-sys-typescale-label-large);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidebar-search__result:hover {
+  background: var(--md-sys-color-surface-container-highest);
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface);
+}
+
+.sidebar-search__result svg {
+  flex-shrink: 0;
+}
+
+/* When search is open: show search, hide nav */
+.sidebar.sidebar-search--open .sidebar-search {
+  display: flex;
+}
+
+.sidebar.sidebar-search--open .page-nav {
+  display: none;
+}
+
+/* Collapsed sidebar adjustment */
+.sidebar--collapsed .sidebar-search__input-wrap {
+  padding: 10px;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+}
+
+.sidebar--collapsed .sidebar-search__input,
+.sidebar--collapsed .sidebar-search__result span {
+  display: none;
+}
+
+.sidebar--collapsed .sidebar-search__results {
+  align-items: center;
+}
+
+.sidebar--collapsed .sidebar-search__result {
+  justify-content: center;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+}
+
 .main-content {
   flex: 1;
   max-width: 800px;
   padding: 32px;
   text-align: center;
   margin: 0 auto;
+  animation: fadeUp 0.6s ease forwards;
 }
 
 .page-nav {
@@ -497,6 +606,133 @@ ul {
   margin: 0 4px;
 }
 
+.billing-slider {
+  display: inline-flex;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-full);
+  padding: 4px;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.billing-slider__option {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--md-sys-shape-full);
+  background: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  font: var(--md-sys-typescale-label-large);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.billing-slider__option--active {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.billing-slider__option:hover:not(.billing-slider__option--active) {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.tier-grid {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.tier-card {
+  flex: 1;
+  min-width: 240px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--md-sys-shape-large);
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.tier-card--featured {
+  background: var(--md-sys-color-primary-container);
+  border-color: var(--md-sys-color-primary);
+}
+
+.tier-card__name {
+  font: var(--md-sys-typescale-title-large);
+  color: var(--md-sys-color-on-surface);
+}
+
+.tier-card--featured .tier-card__name {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.tier-card__price {
+  font: var(--md-sys-typescale-display-small);
+  color: var(--md-sys-color-on-surface);
+}
+
+.tier-card--featured .tier-card__price {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.tier-card__period {
+  font: var(--md-sys-typescale-title-medium);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.tier-card--featured .tier-card__period {
+  color: var(--md-sys-color-on-primary-container);
+  opacity: 0.8;
+}
+
+.tier-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.tier-card__features li {
+  font: var(--md-sys-typescale-body-medium);
+  color: var(--md-sys-color-on-surface-variant);
+  padding-left: 20px;
+  position: relative;
+}
+
+.tier-card__features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--md-sys-color-primary);
+  font-weight: 700;
+}
+
+.tier-card--featured .tier-card__features li {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.tier-card--featured .tier-card__features li::before {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.tier-card .btn {
+  margin-top: auto;
+}
+
 .suggested-wallpapers {
   padding: 32px 48px;
   text-align: center;
@@ -649,10 +885,10 @@ ul {
 }
 
 .news-title {
-  font: var(--md-sys-typescale-headline-small);
-  color: var(--md-sys-color-on-surface);
-  margin-bottom: 8px;
-  
+  font: var(--md-sys-typescale-display-large);
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 12px;
 }
 
 .news-articles {
