@@ -72,7 +72,8 @@ const modalDownload = document.getElementById('modal-download');
 
 if (wallpaperCards.length && wallpaperModal && modalImage && modalDownload) {
   wallpaperCards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.wallpaper-card__download-btn')) return;
       const src = card.dataset.image;
       const name = card.dataset.name;
       modalImage.src = src;
@@ -82,11 +83,34 @@ if (wallpaperCards.length && wallpaperModal && modalImage && modalDownload) {
       wallpaperModal.classList.add('wallpaper-modal--open');
       document.body.style.overflow = 'hidden';
     });
+
+    const downloadBtn = card.querySelector('.wallpaper-card__download-btn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = card.dataset.image;
+        const name = card.dataset.name;
+        const ext = src.includes('.') ? src.substring(src.lastIndexOf('.')) : '';
+        const filename = (name || src.split('/').pop().replace(ext, '')) + ext;
+        const link = document.createElement('a');
+        link.href = src;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
   });
 
+  const modalContent = document.querySelector('.wallpaper-modal__content');
+
   function closeModal() {
-    wallpaperModal.classList.remove('wallpaper-modal--open');
-    document.body.style.overflow = '';
+    if (wallpaperModal.classList.contains('wallpaper-modal--closing')) return;
+    wallpaperModal.classList.add('wallpaper-modal--closing');
+    modalContent.addEventListener('animationend', () => {
+      wallpaperModal.classList.remove('wallpaper-modal--open', 'wallpaper-modal--closing');
+      document.body.style.overflow = '';
+    }, { once: true });
   }
 
   modalClose.addEventListener('click', closeModal);
