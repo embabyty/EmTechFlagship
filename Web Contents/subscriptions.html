@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ETF - About</title>
-  <link rel="stylesheet" href="Contents/styles.css">
+  <title>ETF - Subscriptions</title>
+  <link rel="stylesheet" href="/Web Contents/styles.css">
 </head>
 <body>
   <div class="layout">
@@ -17,6 +17,7 @@
         </svg>
       </button>
       <nav class="page-nav">
+        </button>
         <a href="index.html" class="btn btn--tonal">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -34,13 +35,13 @@
           </svg>
           <span class="btn__label">Posts</span>
         </a>
-        <a href="subscriptions.html" class="btn btn--tonal">
+        <a href="subscriptions.html" class="btn btn--filled">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 10l3.5-6L12 7l5.5-3L21 10v8H3v-8z"/>
           </svg>
           <span class="btn__label">Subscriptions</span>
         </a>
-        <a href="about.html" class="btn btn--filled">
+        <a href="about.html" class="btn btn--tonal">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
@@ -50,43 +51,37 @@
       </nav>
     </aside>
     <main class="main-content">
-      <div class="bento-grid">
-        <div class="card hero-card">
-          <h2>Emiry</h2><br>
-          <span class="aka-tag">Aka <strong>EmTechFlagship</strong></span>
+      <section class="hero-section">
+        <h1>Join Today!</h1>
+        <div class="billing-slider">
+          <button class="billing-slider__option billing-slider__option--active" data-period="monthly">Monthly</button>
+          <button class="billing-slider__option" data-period="annually">Annually</button>
+          <button class="billing-slider__option" data-period="lifetime">Lifetime</button>
         </div>
-
-        <div class="card card--elevated">
-          <div class="card__emoji">🧠</div>
-          <p class="card__text">
-            Obsessed with Apple Products and the tech world in general. Always looking for the next big thing in technology.
-          </p>
+        <div class="tier-grid">
+          <div class="tier-card">
+            <div class="tier-card__name">ProTech</div>
+            <div class="tier-card__price">$5.99<span class="tier-card__period">/mo</span></div>
+            <ul class="tier-card__features">
+              <li>Feature one</li>
+              <li>Feature two</li>
+              <li>Feature three</li>
+            </ul>
+            <button class="btn btn--filled" style="width: 100%;">Subscribe</button>
+          </div>
+          <div class="tier-card tier-card--featured">
+            <div class="tier-card__name">UltraTech</div>
+            <div class="tier-card__price">$14.99<span class="tier-card__period">/mo</span></div>
+            <ul class="tier-card__features">
+              <li>Feature one</li>
+              <li>Feature two</li>
+              <li>Feature three</li>
+              <li>Feature four</li>
+            </ul>
+            <button class="btn btn--filled" style="width: 100%;">Subscribe</button>
+          </div>
         </div>
-
-        <div class="card card--elevated">
-          <div class="card__emoji">📱</div>
-          <p class="card__text">
-           Beta Testing for Apple's Operating Systems for 7 years.
-          </p>
-        </div>
-
-
-        <div class="card card--elevated">
-          <div class="card__emoji">💻</div>
-          <p class="card__text">
-           Wimdows Insider for 7 years. Always testing the latest features and providing feedback to Microsoft.
-          </p>
-        </div>
-
-
-        <div class="card card--elevated" style="grid-column:1/-1">
-          <div class="card__emoji">🌐</div>
-          <p class="card__text">
-            9 years deep into the world of technology — from coding and design to security,
-            always exploring what's next.
-          </p>
-        </div>
-      </div>
+      </section>
     </main>
   </div>
 

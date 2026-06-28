@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ETF - News</title>
-  <link rel="stylesheet" href="Contents/styles.css">
+  <title>ETF - About</title>
+  <link rel="stylesheet" href="/Web Contents/styles.css">
 </head>
 <body>
   <div class="layout">
@@ -25,7 +25,7 @@
           <span class="btn__label">Home</span>
         </a>
 
-        <a href="news.html" class="btn btn--filled">
+        <a href="news.html" class="btn btn--tonal">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
             <polyline points="14 2 14 8 20 8"/>
@@ -40,7 +40,7 @@
           </svg>
           <span class="btn__label">Subscriptions</span>
         </a>
-        <a href="about.html" class="btn btn--tonal">
+        <a href="about.html" class="btn btn--filled">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
@@ -49,15 +49,44 @@
         </a>
       </nav>
     </aside>
-    <main class="main-content main-content--wide">
-      <h1 class="news-title">Posts</h1>
+    <main class="main-content">
+      <div class="bento-grid">
+        <div class="card hero-card">
+          <h2>Emiry</h2><br>
+          <span class="aka-tag">Aka <strong>EmTechFlagship</strong></span>
+        </div>
 
-      <section class="news-section">
+        <div class="card card--elevated">
+          <div class="card__emoji">🧠</div>
+          <p class="card__text">
+            Obsessed with Apple Products and the tech world in general. Always looking for the next big thing in technology.
+          </p>
+        </div>
 
-        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
-        
-      </section>
+        <div class="card card--elevated">
+          <div class="card__emoji">📱</div>
+          <p class="card__text">
+           Beta Testing for Apple's Operating Systems for 7 years.
+          </p>
+        </div>
 
+
+        <div class="card card--elevated">
+          <div class="card__emoji">💻</div>
+          <p class="card__text">
+           Wimdows Insider for 7 years. Always testing the latest features and providing feedback to Microsoft.
+          </p>
+        </div>
+
+
+        <div class="card card--elevated" style="grid-column:1/-1">
+          <div class="card__emoji">🌐</div>
+          <p class="card__text">
+            9 years deep into the world of technology — from coding and design to security,
+            always exploring what's next.
+          </p>
+        </div>
+      </div>
     </main>
   </div>
 
@@ -98,15 +127,6 @@
       <span id="theme-label">Light</span>
     </button>
   </div>
-  <script type="text/javascript">
-    (function(){
-      var i,e,d=document,s="script";i=d.createElement(s);i.async=1;i.charset="UTF-8";
-      i.src="https://cdn.curator.io/published/1851e14a-758a-49b8-812a-e5690b6fd21c.js";
-      e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-    })();
-  </script>
-
   <script src="Functions/function.js"></script>
-
 </body>
 </html>
