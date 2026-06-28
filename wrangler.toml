@@ -2,4 +2,4 @@ name = "embaby"
 compatibility_date = "2026-06-26"
 
 [assets]
-directory = "Web Contents"
+directory = "Contents"
